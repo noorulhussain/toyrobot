@@ -72,6 +72,12 @@ public class ToyRobotController {
 		}
 		return new ResponseEntity<ToyRobot>(toyRobotService.report(), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/reset")
+	public ResponseEntity<?> reset() {
+		toyRobotService.reset();
+		return new ResponseEntity<ToyRobotResponse>(getErrorMessage("TOY ROBOT POSITION AND DIRECTION ERASED. PLACE IT AGAIN!!!"), HttpStatus.OK);
+	}
 
 	private ToyRobotResponse getErrorMessage(String message) {
 		ToyRobotResponse response = new ToyRobotResponse();

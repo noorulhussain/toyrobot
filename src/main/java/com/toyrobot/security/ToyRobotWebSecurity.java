@@ -12,7 +12,7 @@ public class ToyRobotWebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/move", "/left", "/right", "/report", "/place").permitAll()
+                .antMatchers("/", "/move", "/left", "/right", "/report", "/place", "/reset").permitAll()
                 .anyRequest().authenticated()
                 .and()
         	.formLogin()
